@@ -14,7 +14,7 @@ const QuizGame: React.FC = () => {
   const [gameState, setGameState] = useAtom(gameStateAtom);
   const [cards, setCards] = useAtom(quizCardsAtom);
   const [progress, setProgress] = useAtom(progressAtom);
-  const { flipCard, answerQuestion } = useQuizCardState();
+  const { activeCard, openCard, closeCard, answerQuestion } = useQuizCardState();
 
   // 初始化题目数据
   useEffect(() => {
@@ -71,7 +71,9 @@ const QuizGame: React.FC = () => {
             <QuizCardComponent
               key={card.id}
               card={card}
-              onFlip={flipCard}
+              isActive={activeCard === card.id}
+              onOpen={openCard}
+              onClose={closeCard}
               onAnswer={answerQuestion}
             />
           ))}

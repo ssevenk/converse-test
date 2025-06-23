@@ -18,6 +18,9 @@ export interface QuizCard {
 // 答题卡片数据
 export const quizCardsAtom = atom<QuizCard[]>([]);
 
+// 当前弹窗卡片ID
+export const activeCardAtom = atom<number | null>(null);
+
 // 当前答题进度
 export const progressAtom = atom<{
   answered: number;
