@@ -1,99 +1,166 @@
 /**
  * 题目数据管理
- * 包含16道题目和对应的图片数据
+ * 根据JSON配置文件生成的16道题目数据，支持单选题、多选题和简答题
  */
 import { QuizCard } from '../atoms/quizAtoms';
 
 export const createQuizData = (): QuizCard[] => {
   const questions = [
     {
-      question: "哪个星球是太阳系中最大的？",
-      options: ["火星", "木星", "土星", "天王星"],
-      correctAnswer: 1
+      type: 'multiselect' as const,
+      question: "交感神经过度激活的主要表现为",
+      options: [
+        "血压升高",
+        "心率增快",
+        "心肌耗氧量减少",
+        "心绞痛发作"
+      ],
+      correctAnswer: [0, 1, 3], // 答案ABD
+      points: 8,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc493509fc.jpg"
     },
     {
-      question: "世界上最高的山峰是？",
-      options: ["珠穆朗玛峰", "乞力马扎罗山", "阿尔卑斯山", "安第斯山"],
-      correctAnswer: 0
+      type: 'shortanswer' as const,
+      question: "进入体内可定大量被______摄取。",
+      points: 5,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc6eb3923c.jpg"
     },
     {
-      question: "中国的首都是？",
-      options: ["上海", "广州", "北京", "深圳"],
-      correctAnswer: 2
+      type: 'shortanswer' as const,
+      question: "可使LDL-C降低50%以上的可定剂量是",
+      points: 5,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49671f5f.jpg"
     },
     {
-      question: "一年有多少个月？",
-      options: ["10个", "11个", "12个", "13个"],
-      correctAnswer: 2
+      type: 'shortanswer' as const,
+      question: "可定®获批斑块适应症是基于哪个临床研究？",
+      points: 8,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49300de6.jpg"
     },
     {
-      question: "海洋中最大的动物是？",
-      options: ["鲨鱼", "蓝鲸", "章鱼", "海豚"],
-      correctAnswer: 1
+      type: 'shortanswer' as const,
+      question: "动脉粥样硬化主要是血液中___引起的？",
+      points: 5,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc492dda93.jpg"
     },
     {
-      question: "彩虹有几种颜色？",
-      options: ["5种", "6种", "7种", "8种"],
-      correctAnswer: 2
+      type: 'shortanswer' as const,
+      question: "请简单介绍一下《名院社区》项目",
+      points: 10,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49eef7ab.jpg"
     },
     {
-      question: "地球绕太阳转一圈需要多长时间？",
-      options: ["一个月", "半年", "一年", "两年"],
-      correctAnswer: 2
+      type: 'shortanswer' as const,
+      question: "心血管疾病患者（如高血压）一般心率快于___次/min时需要干预？",
+      points: 5,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc6ead4bee.jpg"
     },
     {
-      question: "人体最大的器官是？",
-      options: ["心脏", "肝脏", "皮肤", "肺"],
-      correctAnswer: 2
+      type: 'multiple' as const,
+      question: "XZK 带量政策执行后，24粒和60粒考核价分别是？",
+      options: [
+        "21.51；56.89",
+        "21.51；32.96",
+        "13.19；32.96",
+        "13.19；56.89"
+      ],
+      correctAnswer: 2, // 答案C
+      points: 5,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc4a30b43f.jpg"
     },
     {
-      question: "水的沸点是多少摄氏度？",
-      options: ["90°C", "95°C", "100°C", "105°C"],
-      correctAnswer: 2
+      type: 'multiselect' as const,
+      question: "原研倍他乐克缓释片和仿制品有哪些区别？",
+      options: [
+        "原研有独特的缓释微丸制剂技术",
+        "通过一致性评级的仿制品在临床上完全等效",
+        "仿制品与原研相比，心血管事件发生风险增加45%",
+        "仿制品与原研相比，心动过缓不良反应报告率是原研的5倍"
+      ],
+      correctAnswer: [0, 2, 3], // 答案ACD
+      points: 5,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc6ec22ce7.jpg"
     },
     {
-      question: "一周有几天？",
-      options: ["5天", "6天", "7天", "8天"],
-      correctAnswer: 2
+      type: 'multiple' as const,
+      question: "《2024中国NSTE-ACS指南》对ACS患者的常规抗血小板治疗P2Y12受体抑制剂方面是如何推荐的？",
+      options: [
+        "首选氯吡格雷联合阿司匹林进行抗血小板治疗",
+        "氯吡格雷仅在替格瑞洛不可及、不耐受或有禁忌症时使用",
+        "替格瑞洛负荷剂量800 mg，维持剂量150mg/d",
+        "仅在选择保守治疗策略时，选择替格瑞洛"
+      ],
+      correctAnswer: 1, // 答案B
+      points: 5,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49e4b641.jpg"
     },
     {
-      question: "中国有多少个省份？",
-      options: ["22个", "23个", "24个", "25个"],
-      correctAnswer: 1
+      type: 'shortanswer' as const,
+      question: "胸痛中心第三版质控指标中新增出院带药管理指标，其中明确要求：所有ACS患者他汀药物使用率不得低于  %，双抗血小板治疗率不得低于   %；β受体阻滞剂(无禁忌症)的使用率不得低于   %",
+      points: 10,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49eef7ab.jpg"
     },
     {
-      question: "光速是多少？",
-      options: ["30万公里/秒", "20万公里/秒", "40万公里/秒", "50万公里/秒"],
-      correctAnswer: 0
+      type: 'multiple' as const,
+      question: "国内外指南对CCS人群中使用β受体阻滞剂是如何推荐的？",
+      options: [
+        "低剂量使用β受体阻滞剂，以防止心动过缓",
+        "使用其他抑制交感神经药物疗效不佳时，可联合使用β受体阻滞剂",
+        "如无禁忌证，建议所有患者初始选择β受体阻滞剂，并逐步增加至维持剂量",
+        "在心率得到有效控制后，可逐渐减量至最终停药"
+      ],
+      correctAnswer: 2, // 答案C
+      points: 5,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49a451b1.jpg"
     },
     {
-      question: "世界上最大的洋是？",
-      options: ["大西洋", "印度洋", "太平洋", "北冰洋"],
-      correctAnswer: 2
+      type: 'shortanswer' as const,
+      question: "STELLAR研究是一项比较不同剂量的他汀治疗和安全性的研究结果显示，可定10mg降低LDL-C幅度为",
+      points: 8,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc4982e31e.jpg"
     },
     {
-      question: "人体有多少块骨头？",
-      options: ["206块", "196块", "216块", "186块"],
-      correctAnswer: 0
+      type: 'multiple' as const,
+      question: "以下关于血脂康调脂作用说法错误的是：",
+      options: [
+        "降低TC",
+        "降低TG",
+        "降低LDL-C",
+        "降低HDL-C"
+      ],
+      correctAnswer: 3, // 答案D
+      points: 5,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49b0b985.jpg"
     },
     {
-      question: "金字塔位于哪个国家？",
-      options: ["希腊", "埃及", "意大利", "土耳其"],
-      correctAnswer: 1
+      type: 'multiselect' as const,
+      question: "β受体阻滞剂用于治疗心血管疾病（高血压、心绞痛等）的药理机制是什么？",
+      options: [
+        "抑制交感神经过度激活",
+        "降低血脂",
+        "减小心脏收缩力和心率，降低血压和心脏负荷",
+        "快速高效可逆"
+      ],
+      correctAnswer: [0, 2], // 答案AC
+      points: 5,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc4956df3c.jpg"
     },
     {
-      question: "世界上最小的国家是？",
-      options: ["摩纳哥", "梵蒂冈", "列支敦士登", "圣马力诺"],
-      correctAnswer: 1
+      type: 'shortanswer' as const,
+      question: "可定三重机制稳定斑块，具体是哪三重机制？",
+      points: 8,
+      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc4a0f1da8.jpg"
     }
   ];
 
   return questions.map((q, index) => ({
     id: index + 1,
-    imageUrl: `https://picsum.photos/400/300?random=${index + 1}`,
+    imageUrl: q.imageUrl,
     question: q.question,
+    type: q.type,
     options: q.options,
     correctAnswer: q.correctAnswer,
+    points: q.points,
     isFlipped: false,
     isAnswered: false
   }));

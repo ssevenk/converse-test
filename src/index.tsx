@@ -18,8 +18,12 @@ const QuizGame: React.FC = () => {
 
   // 初始化题目数据
   useEffect(() => {
-    setCards(createQuizData());
-  }, [setCards]);
+    const quizData = createQuizData();
+    setCards(quizData);
+    // 计算总的可能得分
+    const maxScore = quizData.reduce((sum, card) => sum + card.points, 0);
+    setProgress(prev => ({ ...prev, maxScore }));
+  }, [setCards, setProgress]);
 
   // 检查游戏完成状态
   useEffect(() => {
@@ -29,8 +33,10 @@ const QuizGame: React.FC = () => {
   }, [progress.answered, progress.total, setGameState]);
 
   const resetGame = () => {
-    setCards(createQuizData());
-    setProgress({ answered: 0, total: 16, score: 0 });
+    const quizData = createQuizData();
+    setCards(quizData);
+    const maxScore = quizData.reduce((sum, card) => sum + card.points, 0);
+    setProgress({ answered: 0, total: 16, score: 0, maxScore });
     setGameState('playing');
   };
 
@@ -41,7 +47,7 @@ const QuizGame: React.FC = () => {
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-white mb-4 flex items-center justify-center gap-3">
             <Target className="w-8 h-8" />
-            智力答题挑战
+            我带BOSS冲冲冲
           </h1>
           
           <div className="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-4 max-w-md mx-auto">
@@ -52,7 +58,7 @@ const QuizGame: React.FC = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Trophy className="w-5 h-5" />
-                <span>得分: {progress.score}</span>
+                <span>得分: {progress.score}/{progress.maxScore}</span>
               </div>
             </div>
             
@@ -86,10 +92,10 @@ const QuizGame: React.FC = () => {
               <Trophy className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
               <h2 className="text-2xl font-bold text-white mb-2">挑战完成！</h2>
               <p className="text-white text-lg mb-4">
-                最终得分: {progress.score}/{progress.total}
+                最终得分: {progress.score}/{progress.maxScore}
               </p>
               <p className="text-white mb-6">
-                正确率: {((progress.score / progress.total) * 100).toFixed(1)}%
+                正确率: {((progress.score / progress.maxScore) * 100).toFixed(1)}%
               </p>
               <button
                 onClick={resetGame}

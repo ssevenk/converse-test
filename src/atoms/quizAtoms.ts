@@ -8,11 +8,13 @@ export interface QuizCard {
   id: number;
   imageUrl: string;
   question: string;
-  options: string[];
-  correctAnswer: number;
+  type: 'multiple' | 'multiselect' | 'shortanswer'; // 新增多选题类型
+  options?: string[]; // 选择题和多选题的选项
+  correctAnswer?: number | number[]; // 单选题用number，多选题用number[]
+  points: number; // 每道题的分值
   isFlipped: boolean;
   isAnswered: boolean;
-  userAnswer?: number;
+  userAnswer?: number | number[] | boolean; // 单选题用number，多选题用number[]，简答题用boolean
 }
 
 // 答题卡片数据
@@ -26,10 +28,12 @@ export const progressAtom = atom<{
   answered: number;
   total: number;
   score: number;
+  maxScore: number; // 总的可能得分
 }>({
   answered: 0,
   total: 16,
-  score: 0
+  score: 0,
+  maxScore: 0
 });
 
 // 游戏状态

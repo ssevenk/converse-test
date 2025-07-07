@@ -1,6 +1,6 @@
 /**
  * 单个卡片的状态管理逻辑
- * 处理卡片翻转、答题等交互状态
+ * 处理卡片翻转、答题等交互状态，支持单选题、多选题和简答题
  */
 import { useAtom } from 'jotai';
 import { quizCardsAtom, progressAtom, activeCardAtom } from '../../atoms/quizAtoms';
@@ -28,22 +28,37 @@ export const useQuizCardState = () => {
     setCards(prev => prev.map(card => ({ ...card, isFlipped: false })));
   };
 
-  const answerQuestion = (cardId: number, answerIndex: number) => {
+  const answerQuestion = (cardId: number, answer: number | number[] | boolean) => {
     setCards(prev => prev.map(card => {
       if (card.id === cardId && !card.isAnswered) {
-        const isCorrect = answerIndex === card.correctAnswer;
+        let isCorrect = false;
         
-        // 更新进度
+        if (card.type === 'multiple') {
+          // 单选题：对比预设答案
+          isCorrect = answer === card.correctAnswer;
+        } else if (card.type === 'multiselect') {
+          // 多选题：对比数组答案
+          const userAnswers = answer as number[];
+          const correctAnswers = card.correctAnswer as number[];
+          isCorrect = Array.isArray(userAnswers) && Array.isArray(correctAnswers) &&
+                     userAnswers.length === correctAnswers.length && 
+                     userAnswers.every(ans => correctAnswers.includes(ans));
+        } else {
+          // 简答题：主持人的判断就是最终结果
+          isCorrect = answer === true;
+        }
+        
+        // 更新进度 - 使用题目的分值
         setProgress(currentProgress => ({
           ...currentProgress,
           answered: currentProgress.answered + 1,
-          score: isCorrect ? currentProgress.score + 1 : currentProgress.score
+          score: isCorrect ? currentProgress.score + card.points : currentProgress.score
         }));
 
         return {
           ...card,
           isAnswered: true,
-          userAnswer: answerIndex
+          userAnswer: answer
         };
       }
       return card;
