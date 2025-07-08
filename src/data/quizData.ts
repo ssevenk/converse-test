@@ -29,7 +29,7 @@ export const createQuizData = (): QuizCard[] => {
       type: 'shortanswer' as const,
       question: "可使LDL-C降低50%以上的可定剂量是",
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49671f5f.jpg"
+      imageUrl: "https://img.picui.cn/free/2025/07/08/686c9785504c9.jpg"
     },
     {
       type: 'shortanswer' as const,
@@ -66,7 +66,7 @@ export const createQuizData = (): QuizCard[] => {
       ],
       correctAnswer: 2, // 答案C
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc4a30b43f.jpg"
+      imageUrl: "https://img.picui.cn/free/2025/07/08/686c9942ad8fe.jpg"
     },
     {
       type: 'multiselect' as const,
@@ -92,7 +92,7 @@ export const createQuizData = (): QuizCard[] => {
       ],
       correctAnswer: 1, // 答案B
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49e4b641.jpg"
+      imageUrl: "https://img.picui.cn/free/2025/07/08/686c993f62812.jpg"
     },
     {
       type: 'shortanswer' as const,
@@ -130,7 +130,7 @@ export const createQuizData = (): QuizCard[] => {
       ],
       correctAnswer: 3, // 答案D
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49b0b985.jpg"
+      imageUrl: "https://img.picui.cn/free/2025/07/08/686c99419784d.jpg"
     },
     {
       type: 'multiselect' as const,
