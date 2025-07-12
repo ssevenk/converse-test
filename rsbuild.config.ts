@@ -9,6 +9,7 @@ export default defineConfig({
     },
   },
   output: {
+    assetPrefix: './',
     distPath: {
       root: '.', // 输出到根目录
     },
