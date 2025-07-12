@@ -3,6 +3,21 @@
  * 根据JSON配置文件生成的16道题目数据，支持单选题、多选题和简答题
  */
 import { QuizCard } from '../atoms/quizAtoms';
+import wzj from './assets/wzj.jpg'
+import cy from './assets/cy.jpg'
+import labubu2 from './assets/labubu-2.jpg'
+import jxl from './assets/jxl.jpg'
+import Vanessa from './assets/Vanessa.jpg'
+import zsn from './assets/zsn.jpg'
+import labubu1 from './assets/labubu-1.jpg'
+import zyl from './assets/zyl.jpg'
+import MDYolanda from './assets/MD-Yolanda.jpg'
+import pj from './assets/pj.jpg'
+import lgp from './assets/lgp.jpg'
+import labubu3 from './assets/labubu-3.jpg'
+import lys from './assets/lys.jpg'
+import glf from './assets/glf.jpg'
+import zimomo from "./assets/zimomo.jpg"
 
 export const createQuizData = (): QuizCard[] => {
   const questions = [
@@ -17,43 +32,43 @@ export const createQuizData = (): QuizCard[] => {
       ],
       correctAnswer: [0, 1, 3], // 答案ABD
       points: 8,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc493509fc.jpg"
+      imageUrl: labubu1
     },
     {
       type: 'shortanswer' as const,
       question: "进入体内可定大量被______摄取。",
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc6eb3923c.jpg"
+      imageUrl: wzj,
     },
     {
       type: 'shortanswer' as const,
       question: "可使LDL-C降低50%以上的可定剂量是",
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/08/686c9785504c9.jpg"
+      imageUrl: cy,
     },
     {
       type: 'shortanswer' as const,
       question: "可定®获批斑块适应症是基于哪个临床研究？",
       points: 8,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49300de6.jpg"
+      imageUrl: labubu2,
     },
     {
       type: 'shortanswer' as const,
       question: "动脉粥样硬化主要是血液中___引起的？",
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc492dda93.jpg"
+      imageUrl: jxl,
     },
     {
       type: 'shortanswer' as const,
       question: "请简单介绍一下《名院社区》项目",
       points: 10,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49eef7ab.jpg"
+      imageUrl: pj,
     },
     {
       type: 'shortanswer' as const,
       question: "心血管疾病患者（如高血压）一般心率快于___次/min时需要干预？",
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc6ead4bee.jpg"
+      imageUrl: Vanessa,
     },
     {
       type: 'multiple' as const,
@@ -66,7 +81,7 @@ export const createQuizData = (): QuizCard[] => {
       ],
       correctAnswer: 2, // 答案C
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/08/686c9942ad8fe.jpg"
+      imageUrl: zsn,
     },
     {
       type: 'multiselect' as const,
@@ -79,7 +94,7 @@ export const createQuizData = (): QuizCard[] => {
       ],
       correctAnswer: [0, 2, 3], // 答案ACD
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc6ec22ce7.jpg"
+      imageUrl: zyl,
     },
     {
       type: 'multiple' as const,
@@ -92,13 +107,13 @@ export const createQuizData = (): QuizCard[] => {
       ],
       correctAnswer: 1, // 答案B
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/08/686c993f62812.jpg"
+      imageUrl: MDYolanda,
     },
     {
       type: 'shortanswer' as const,
       question: "胸痛中心第三版质控指标中新增出院带药管理指标，其中明确要求：所有ACS患者他汀药物使用率不得低于  %，双抗血小板治疗率不得低于   %；β受体阻滞剂(无禁忌症)的使用率不得低于   %",
       points: 10,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49eef7ab.jpg"
+      imageUrl: pj,
     },
     {
       type: 'multiple' as const,
@@ -111,13 +126,13 @@ export const createQuizData = (): QuizCard[] => {
       ],
       correctAnswer: 2, // 答案C
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc49a451b1.jpg"
+      imageUrl: lgp,
     },
     {
       type: 'shortanswer' as const,
       question: "STELLAR研究是一项比较不同剂量的他汀治疗和安全性的研究结果显示，可定10mg降低LDL-C幅度为",
       points: 8,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc4982e31e.jpg"
+      imageUrl: labubu3,
     },
     {
       type: 'multiple' as const,
@@ -130,7 +145,7 @@ export const createQuizData = (): QuizCard[] => {
       ],
       correctAnswer: 3, // 答案D
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/08/686c99419784d.jpg"
+      imageUrl: lys,
     },
     {
       type: 'multiselect' as const,
@@ -143,13 +158,13 @@ export const createQuizData = (): QuizCard[] => {
       ],
       correctAnswer: [0, 2], // 答案AC
       points: 5,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc4956df3c.jpg"
+      imageUrl: glf
     },
     {
       type: 'shortanswer' as const,
       question: "可定三重机制稳定斑块，具体是哪三重机制？",
       points: 8,
-      imageUrl: "https://img.picui.cn/free/2025/07/07/686bc4a0f1da8.jpg"
+      imageUrl: zimomo
     }
   ];
 
