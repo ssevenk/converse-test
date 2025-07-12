@@ -6,6 +6,7 @@ import { QuizCard } from '../atoms/quizAtoms';
 import wzj from './assets/wzj.jpg'
 import cy from './assets/cy.jpg'
 import labubu2 from './assets/labubu-2.jpg'
+import labubu5 from './assets/labubu5.jpg'
 import jxl from './assets/jxl.jpg'
 import Vanessa from './assets/Vanessa.jpg'
 import zsn from './assets/zsn.jpg'
@@ -84,17 +85,10 @@ export const createQuizData = (): QuizCard[] => {
       imageUrl: zsn,
     },
     {
-      type: 'multiselect' as const,
-      question: "原研倍他乐克缓释片和仿制品有哪些区别？",
-      options: [
-        "原研有独特的缓释微丸制剂技术",
-        "通过一致性评级的仿制品在临床上完全等效",
-        "仿制品与原研相比，心血管事件发生风险增加45%",
-        "仿制品与原研相比，心动过缓不良反应报告率是原研的5倍"
-      ],
-      correctAnswer: [0, 2, 3], // 答案ACD
-      points: 5,
-      imageUrl: zyl,
+      type: 'shortanswer' as const,
+      question: "胸痛中心第三版质控指标中新增出院带药管理指标，其中明确要求：所有ACS患者他汀药物使用率不得低于  %，双抗血小板治疗率不得低于   %；β受体阻滞剂(无禁忌症)的使用率不得低于   %",
+      points: 10,
+      imageUrl: zimomo,
     },
     {
       type: 'multiple' as const,
@@ -110,10 +104,17 @@ export const createQuizData = (): QuizCard[] => {
       imageUrl: MDYolanda,
     },
     {
-      type: 'shortanswer' as const,
-      question: "胸痛中心第三版质控指标中新增出院带药管理指标，其中明确要求：所有ACS患者他汀药物使用率不得低于  %，双抗血小板治疗率不得低于   %；β受体阻滞剂(无禁忌症)的使用率不得低于   %",
-      points: 10,
-      imageUrl: pj,
+      type: 'multiselect' as const,
+      question: "原研倍他乐克缓释片和仿制品有哪些区别？",
+      options: [
+        "原研有独特的缓释微丸制剂技术",
+        "通过一致性评级的仿制品在临床上完全等效",
+        "仿制品与原研相比，心血管事件发生风险增加45%",
+        "仿制品与原研相比，心动过缓不良反应报告率是原研的5倍"
+      ],
+      correctAnswer: [0, 2, 3], // 答案ACD
+      points: 5,
+      imageUrl: zyl,
     },
     {
       type: 'multiple' as const,
@@ -164,7 +165,7 @@ export const createQuizData = (): QuizCard[] => {
       type: 'shortanswer' as const,
       question: "可定三重机制稳定斑块，具体是哪三重机制？",
       points: 8,
-      imageUrl: zimomo
+      imageUrl: labubu5
     }
   ];
 

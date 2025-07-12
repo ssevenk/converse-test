@@ -302,13 +302,13 @@ const QuizCardComponent: React.FC<QuizCardProps> = ({
             alt={`卡片 ${card.id}`}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+          {/* <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
             {!card.isAnswered && (
               <span className="text-white text-lg font-bold bg-black bg-opacity-50 px-3 py-1 rounded-lg">
                 点击答题
               </span>
             )}
-          </div>
+          </div> */}
           {card.isAnswered && (
             <div className="absolute top-2 right-2">
               {isCorrectAnswer() ? (
