@@ -67,9 +67,9 @@ export const createQuizData = (): QuizCard[] => {
     },
     {
       type: 'shortanswer' as const,
-      question: "心血管疾病患者（如高血压）一般心率快于___次/min时需要干预？",
-      points: 5,
-      imageUrl: Vanessa,
+      question: "胸痛中心第三版质控指标中新增出院带药管理指标，其中明确要求：所有ACS患者他汀药物使用率不得低于  %，双抗血小板治疗率不得低于   %；β受体阻滞剂(无禁忌症)的使用率不得低于   %",
+      points: 10,
+      imageUrl: zimomo,
     },
     {
       type: 'multiple' as const,
@@ -85,10 +85,17 @@ export const createQuizData = (): QuizCard[] => {
       imageUrl: zsn,
     },
     {
-      type: 'shortanswer' as const,
-      question: "胸痛中心第三版质控指标中新增出院带药管理指标，其中明确要求：所有ACS患者他汀药物使用率不得低于  %，双抗血小板治疗率不得低于   %；β受体阻滞剂(无禁忌症)的使用率不得低于   %",
-      points: 10,
-      imageUrl: zimomo,
+      type: 'multiselect' as const,
+      question: "原研倍他乐克缓释片和仿制品有哪些区别？",
+      options: [
+        "原研有独特的缓释微丸制剂技术",
+        "通过一致性评级的仿制品在临床上完全等效",
+        "仿制品与原研相比，心血管事件发生风险增加45%",
+        "仿制品与原研相比，心动过缓不良反应报告率是原研的5倍"
+      ],
+      correctAnswer: [0, 2, 3], // 答案ACD
+      points: 5,
+      imageUrl: zyl,
     },
     {
       type: 'multiple' as const,
@@ -104,17 +111,10 @@ export const createQuizData = (): QuizCard[] => {
       imageUrl: MDYolanda,
     },
     {
-      type: 'multiselect' as const,
-      question: "原研倍他乐克缓释片和仿制品有哪些区别？",
-      options: [
-        "原研有独特的缓释微丸制剂技术",
-        "通过一致性评级的仿制品在临床上完全等效",
-        "仿制品与原研相比，心血管事件发生风险增加45%",
-        "仿制品与原研相比，心动过缓不良反应报告率是原研的5倍"
-      ],
-      correctAnswer: [0, 2, 3], // 答案ACD
+      type: 'shortanswer' as const,
+      question: "心血管疾病患者（如高血压）一般心率快于___次/min时需要干预？",
       points: 5,
-      imageUrl: zyl,
+      imageUrl: Vanessa,
     },
     {
       type: 'multiple' as const,
